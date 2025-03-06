@@ -1,0 +1,24 @@
+<section class="w-3/4 mx-auto main-sec">
+  <h1 class="text-3xl text-center text-green-600">User Orders</h1>
+
+  @if (orders.length > 0) {
+    @for (order of orders; track order._id) {
+      <div class="p-4 mb-2 border rounded shadow">
+        <h2 class="text-xl font-bold">Order ID: {{ order._id }}</h2>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Total Price:</strong> {{ order.totalPrice | currency:'GBP' }}</p>
+
+        <h3 class="mt-2 text-lg font-semibold">Products:</h3>
+        <ul>
+          @for (product of order.products; track product._id) {
+            <li>
+              {{ product.title }} - {{ product.price | currency:'GBP' }} (Qty: {{ product.count }})
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  } @else {
+    <p class="text-center text-red-500">No orders found.</p>
+  }
+</section>
