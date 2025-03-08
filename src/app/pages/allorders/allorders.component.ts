@@ -1,30 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { OrdersService } from '../../core/services/orders/orders.service';
-import { CurrencyPipe } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
+import { OrdersService } from './../../core/services/orders/orders.service';
+import { Component, inject, OnInit, PLATFORM_ID  } from '@angular/core';
+import { IallOrders } from './iall-orders';
 
 @Component({
-  selector: 'app-all-orders',
+  selector: 'app-orders',
+  standalone: true,
   templateUrl: './allorders.component.html',
-  imports: [CurrencyPipe, ],
-  styleUrl: './allorders.component.scss'
+  styleUrls: ['./allorders.component.scss']
 })
-export class AllOrdersComponent implements OnInit {
-  orders: any[] = [];
+export class OrdersComponent implements OnInit {
+  allOrders:IallOrders[] = []
 
-  constructor(private ordersService: OrdersService) {}
+  private readonly ordersService = inject(OrdersService)
+  private readonly PLATFORM_ID = inject(PLATFORM_ID)
 
-  ngOnInit(): void {
+
+  ngOnInit():void {
     this.getOrders();
   }
 
-  getOrders(): void {
-    this.ordersService.getUserOrders().subscribe({
-      next: (res) => {
-        this.orders = res;
-      },
-      error: (err) => {
-        console.error('Error fetching orders:', err);
-      }
-    });
+  getOrders():void {
+    if(isPlatformBrowser(this.PLATFORM_ID)){
+      const userId = localStorage.getItem('userId') as string
+      this.ordersService.getAllUserOrders(userId).subscribe({
+        next:(res)=>{
+          console.log(res);
+
+        }
+      })
+    }
   }
 }

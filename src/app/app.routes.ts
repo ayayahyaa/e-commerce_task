@@ -55,8 +55,8 @@ export const routes: Routes = [
         title: 'products'
       },
       {
-        path: 'allorders',
-        loadComponent: () => import('./pages/allorders/allorders.component').then(m => m.AllOrdersComponent),
+        path: 'orders/:id',
+        loadComponent: () => import('./pages/allorders/allorders.component').then(m => m.OrdersComponent),
         title: 'allorders'
       },
       {

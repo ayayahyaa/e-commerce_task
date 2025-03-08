@@ -15,19 +15,19 @@
         <ul class="flex flex-col p-4 mt-4 capitalize border border-gray-100 rounded-lg md:p-0 md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
           <li>
             <a routerLink="/home" routerLinkActive="bg-green-600 text-white"
-            class="block px-3 py-2 text-gray-700 rounded-sm" aria-current="page">{{'navbar.home' | translate}}</a>
+            class="block px-3 py-2 text-gray-700 rounded-xl" aria-current="page">{{'navbar.home' | translate}}</a>
           </li>
           <li>
             <a routerLink="/products" routerLinkActive="bg-green-600 text-white"
-            class="block px-3 py-2 text-gray-700 rounded-sm" aria-current="page">{{'navbar.products' | translate}}</a>
+            class="block px-3 py-2 text-gray-700 rounded-xl" aria-current="page">{{'navbar.products' | translate}}</a>
           </li>
           <li>
             <a routerLink="/categories" routerLinkActive="bg-green-600 text-white"
-            class="block px-3 py-2 text-gray-700 rounded-sm" aria-current="page">{{'navbar.categories' | translate}}</a>
+            class="block px-3 py-2 text-gray-700 rounded-xl" aria-current="page">{{'navbar.categories' | translate}}</a>
           </li>
           <li>
             <a routerLink="/brands" routerLinkActive="bg-green-600 text-white"
-            class="block px-3 py-2 text-gray-700 rounded-sm" aria-current="page">{{'navbar.brands' | translate}}</a>
+            class="block px-3 py-2 text-gray-700 rounded-xl" aria-current="page">{{'navbar.brands' | translate}}</a>
           </li>
         </ul>
       }
@@ -110,11 +110,11 @@
         @if (!isLogin()) {
           <li>
             <a routerLink="/login" routerLinkActive="bg-green-600 text-white"
-            class="block px-3 py-2 text-gray-700 rounded-sm" aria-current="page">{{'navbar.login' | translate}}</a>
+            class="block px-3 py-2 text-gray-700 rounded-xl" aria-current="page">{{'navbar.login' | translate}}</a>
           </li>
           <li>
             <a routerLink="/register" routerLinkActive="bg-green-600 text-white"
-            class="block px-3 py-2 text-gray-700 rounded-sm" aria-current="page">{{'navbar.register' | translate}}</a>
+            class="block px-3 py-2 text-gray-700 rounded-xl" aria-current="page">{{'navbar.register' | translate}}</a>
           </li>
           <li>
         }
@@ -127,7 +127,7 @@
           </a>
           </li>
         <li><a role="button"
-        class="block px-3 py-2 text-gray-700 rounded-sm "
+        class="block px-3 py-2 text-gray-700 rounded-xl "
         (click)="logout()"
           >{{'navbar.signout' | translate}}</a>
         </li>

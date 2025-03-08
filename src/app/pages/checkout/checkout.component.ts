@@ -39,17 +39,14 @@ export class CheckoutComponent implements OnInit {
   }
 
   submitForm():void{
-
-    this.ordersService.checkoutPayMent(this.cartId , this.checkOutForm.value).subscribe({
+    this.cartId
+    this.ordersService.checkOutPayment(this.cartId , this.checkOutForm.value).subscribe({
       next:(res)=>{
         console.log(res)
       if(res.status === 'success'){
         open(res.session.url , '_self')
       }
 },
-      error:(err)=>{
-        console.log(err)
-      }
     })
   }
 

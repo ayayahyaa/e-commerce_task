@@ -6,22 +6,26 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrdersService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  myToken: any = localStorage.getItem('userToken');
+  getAllUserOrders(id: string):Observable<any>{
+    return this.http.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`);
+  }
 
-  checkoutPayMent(id: string, data: object): Observable<any> {
-    return this.httpClient.post(
-      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://localhost:4200`,
-      { "shippingAddress": data },
-
+  checkOutPayment(cartId: string, userDetails: {}):Observable<any>{
+    return this.http.post(
+      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`,
+      {
+        shippingAddress: userDetails,
+      }
     );
   }
 
-  getUserOrders(): Observable<any> {
-    return this.httpClient.get(
-      `https://ecommerce.routemisr.com/api/v1/orders/user/6407cf6f515bdcf347c09f17`,
-  
-    );
+  getOrdersCash(cartId: string, userDetails: {}):Observable<any>{
+    return this.http.post(
+      `https://ecommerce.routemisr.com/api/v1/orders/${cartId}` ,
+      {
+      shippingAddress: userDetails,
+      });
+    }
   }
-}

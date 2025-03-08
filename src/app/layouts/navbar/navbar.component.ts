@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, computed, inject, input, InputSignal, OnInit, Signal, } from '@angular/core';
+import { afterNextRender, AfterViewInit, Component, computed, inject, input, InputSignal, OnInit, Signal, } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { MyTranslateService } from '../../core/services/myTranslate/my-translate.service';
 import { CartService } from '../../core/services/cart/cart.service';
+import { initFlowbite } from 'flowbite'
 
 
 @Component({
@@ -36,7 +37,11 @@ export class NavbarComponent implements OnInit {
 
     }
 
-
+constructor() {
+  afterNextRender(()=> {
+    initFlowbite()
+  })
+}
 
   logout():void{
     this.authService.logoutUser()
