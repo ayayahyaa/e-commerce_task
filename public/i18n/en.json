@@ -4,7 +4,7 @@
     "products": "Products",
     "categories": "Categories",
     "brands": "Brands",
-    "wishlist": "Brands",
+    "wishlist": "wishlist",
     "login": "LogIn",
     "register": "Register",
     "signout": "SignOut",

@@ -1,4 +1,3 @@
-import { WishlistComponent } from './pages/wishlist/wishlist/wishlist.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
 import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
 import { Routes } from '@angular/router';
@@ -53,22 +52,17 @@ export const routes: Routes = [
         path: 'products',
         loadComponent: () => import('./pages/products/products.component').then(m => m.ProductComponent),
         title: 'products'
-      },
-      {
+      },   {
         path: 'orders/:id',
-        loadComponent: () => import('./pages/allorders/allorders.component').then(m => m.OrdersComponent),
-        title: 'allorders'
+        loadComponent: () => import('./pages/orders/orders.component').then(m => m.OrdersComponent),
+        title: 'orders'
       },
       {
         path: 'brands',
         loadComponent: () => import('./pages/brands/brands.component').then(m => m.BrandsComponent),
         title: 'brands'
       },
-      {
-        path: 'wishlist',
-        loadComponent: () => import('./pages/wishlist/wishlist/wishlist.component').then(m => m.WishlistComponent),
-        title: 'wishlist'
-      },
+
       {
         path: 'categories',
         loadComponent: () => import('./pages/categories/categories/categories.component').then(m => m.CategoriesComponent),

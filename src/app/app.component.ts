@@ -7,7 +7,7 @@ import { NavbarComponent } from "./layouts/navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgxSpinnerComponent, NavbarComponent],
+  imports: [RouterOutlet, NgxSpinnerComponent, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

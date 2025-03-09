@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Iorders } from '../../../shared/interfaces/iorders';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 export class OrdersService {
   constructor(private http: HttpClient) {}
 
-  getAllUserOrders(id: string):Observable<any>{
-    return this.http.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`);
+  getAllUserOrders(id: string){
+    return this.http.get<Iorders[]>(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`);
   }
 
-  checkOutPayment(cartId: string, userDetails: {}):Observable<any>{
+  checkOutPayment(cartId: string, userDetails: {}){
     return this.http.post(
       `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`,
       {
@@ -21,7 +21,7 @@ export class OrdersService {
     );
   }
 
-  getOrdersCash(cartId: string, userDetails: {}):Observable<any>{
+  getOrdersCash(cartId: string, userDetails: {}){
     return this.http.post(
       `https://ecommerce.routemisr.com/api/v1/orders/${cartId}` ,
       {
